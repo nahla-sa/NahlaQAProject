@@ -171,8 +171,13 @@ class HomePage:
         username_field_locator = (By.ID, "user-name") 
         username_wait = self.wait.until(EC.visibility_of_element_located(username_field_locator))
 
-        password_field_locator = (By.ID, "password")
-        password_wait = self.wait.until(EC.visibility_of_element_located(password_field_locator))
+        password_find = self.selenium_driver.find_element(By.ID, "password")
+
+        login_button_find = self.selenium_driver.find_element(By.XPATH, "//input[@id=\"login-button\"]") 
+        
+        
+        assert login_button_find.get_attribute("value") == ("Login")
+    
 
 
 
